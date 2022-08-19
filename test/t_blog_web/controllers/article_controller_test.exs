@@ -3,14 +3,24 @@ defmodule TBlogWeb.ArticleControllerTest do
 
   import TBlog.BlogFixtures
 
-  @create_attrs %{author: "some author", content: "some content", tags: [], title: "some title"}
-  @update_attrs %{author: "some updated author", content: "some updated content", tags: [], title: "some updated title"}
+  @create_attrs %{
+    author: "some author",
+    content: "some content",
+    tags: ["movies", "books"],
+    title: "some title"
+  }
+  @update_attrs %{
+    author: "some updated author",
+    content: "some updated content",
+    tags: ["world", "economy"],
+    title: "some updated title"
+  }
   @invalid_attrs %{author: nil, content: nil, tags: nil, title: nil}
 
   describe "index" do
     test "lists all articles", %{conn: conn} do
       conn = get(conn, Routes.article_path(conn, :index))
-      assert html_response(conn, 200) =~ "Listing Articles"
+      assert html_response(conn, 200) =~ "<h1>Articles</h1>"
     end
   end
 
@@ -29,7 +39,7 @@ defmodule TBlogWeb.ArticleControllerTest do
       assert redirected_to(conn) == Routes.article_path(conn, :show, id)
 
       conn = get(conn, Routes.article_path(conn, :show, id))
-      assert html_response(conn, 200) =~ "Show Article"
+      assert html_response(conn, 200) =~ "Article created successfully"
     end
 
     test "renders errors when data is invalid", %{conn: conn} do

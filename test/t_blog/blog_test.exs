@@ -21,12 +21,17 @@ defmodule TBlog.BlogTest do
     end
 
     test "create_article/1 with valid data creates a article" do
-      valid_attrs = %{author: "some author", content: "some content", tags: [], title: "some title"}
+      valid_attrs = %{
+        author: "some author",
+        content: "some content",
+        tags: ["music", "travel"],
+        title: "some title"
+      }
 
       assert {:ok, %Article{} = article} = Blog.create_article(valid_attrs)
       assert article.author == "some author"
       assert article.content == "some content"
-      assert article.tags == []
+      assert article.tags == ["music", "travel"]
       assert article.title == "some title"
     end
 
@@ -36,12 +41,18 @@ defmodule TBlog.BlogTest do
 
     test "update_article/2 with valid data updates the article" do
       article = article_fixture()
-      update_attrs = %{author: "some updated author", content: "some updated content", tags: [], title: "some updated title"}
+
+      update_attrs = %{
+        author: "some updated author",
+        content: "some updated content",
+        tags: ["games", "food"],
+        title: "some updated title"
+      }
 
       assert {:ok, %Article{} = article} = Blog.update_article(article, update_attrs)
       assert article.author == "some updated author"
       assert article.content == "some updated content"
-      assert article.tags == []
+      assert article.tags == ["games", "food"]
       assert article.title == "some updated title"
     end
 

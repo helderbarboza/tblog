@@ -15,6 +15,7 @@ defmodule TBlog.Blog.Article do
   def changeset(article, attrs) do
     article
     |> cast(attrs, [:title, :author, :content, :tags])
+    |> validate_length(:tags, min: 2)
     |> validate_required([:title, :content, :tags])
   end
 end

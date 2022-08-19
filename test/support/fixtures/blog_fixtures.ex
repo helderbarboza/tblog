@@ -13,7 +13,7 @@ defmodule TBlog.BlogFixtures do
       |> Enum.into(%{
         author: "some author",
         content: "some content",
-        tags: [],
+        tags: ["tech", "sports"],
         title: "some title"
       })
       |> TBlog.Blog.create_article()
