@@ -8,6 +8,13 @@ defmodule TBlog.BlogTest do
 
     import TBlog.BlogFixtures
 
+    @valid_attrs %{
+      author: "some author",
+      content: "some content",
+      tags: ["music", "travel"],
+      title: "some title"
+    }
+
     @invalid_attrs %{author: nil, content: nil, tags: nil, title: nil}
 
     test "list_articles/0 returns all articles" do
@@ -15,7 +22,7 @@ defmodule TBlog.BlogTest do
       assert Blog.list_articles() == [article]
     end
 
-    test "get_article!/1 returns the article with given id" do
+    test "get_article!/1 returns the article with given slug" do
       article = article_fixture()
       assert Blog.get_article_by_slug!(article.slug) == article
     end
@@ -37,6 +44,12 @@ defmodule TBlog.BlogTest do
 
     test "create_article/1 with invalid data returns error changeset" do
       assert {:error, %Ecto.Changeset{}} = Blog.create_article(@invalid_attrs)
+    end
+
+    test "create_article/1 with less than 2 tags returns error changeset" do
+      article = article_fixture()
+      assert {:error, changeset} = Blog.create_article(%{@valid_attrs | tags: ["it"]})
+      assert %Ecto.Changeset{errors: [tags: _]} = changeset
     end
 
     test "update_article/2 with valid data updates the article" do
