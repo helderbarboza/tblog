@@ -1,4 +1,6 @@
 defmodule TBlog.Blog.Article do
+  @moduledoc "Article schema."
+
   use Ecto.Schema
   import Ecto.Changeset
   import Slugy

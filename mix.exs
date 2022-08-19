@@ -52,7 +52,8 @@ defmodule TBlog.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:excoveralls, "~> 0.14"},
-      {:slugy, "~> 4.1"}
+      {:slugy, "~> 4.1"},
+      {:credo, "~> 1.6"}
     ]
   end
 
