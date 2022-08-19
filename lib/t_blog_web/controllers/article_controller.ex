@@ -26,19 +26,19 @@ defmodule TBlogWeb.ArticleController do
     end
   end
 
-  def show(conn, %{"id" => id}) do
-    article = Blog.get_article!(id)
+  def show(conn, %{"id" => slug}) do
+    article = Blog.get_article_by_slug!(slug)
     render(conn, "show.html", article: article)
   end
 
-  def edit(conn, %{"id" => id}) do
-    article = Blog.get_article!(id)
+  def edit(conn, %{"id" => slug}) do
+    article = Blog.get_article_by_slug!(slug)
     changeset = Blog.change_article(article)
     render(conn, "edit.html", article: article, changeset: changeset)
   end
 
-  def update(conn, %{"id" => id, "article" => article_params}) do
-    article = Blog.get_article!(id)
+  def update(conn, %{"id" => slug, "article" => article_params}) do
+    article = Blog.get_article_by_slug!(slug)
 
     case Blog.update_article(article, article_params) do
       {:ok, article} ->
@@ -51,8 +51,8 @@ defmodule TBlogWeb.ArticleController do
     end
   end
 
-  def delete(conn, %{"id" => id}) do
-    article = Blog.get_article!(id)
+  def delete(conn, %{"id" => slug}) do
+    article = Blog.get_article_by_slug!(slug)
     {:ok, _article} = Blog.delete_article(article)
 
     conn

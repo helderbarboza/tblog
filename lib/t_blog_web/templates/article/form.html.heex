@@ -10,10 +10,11 @@
     <%= text_input f, :title, class: "form-control", placeholder: "Title" %>
     <%= label f, :title %>
     <%= error_tag f, :title %>
+    <%= error_tag f, :slug %>
   </div>
 
   <div class="form-floating mb-3">
-    <%= text_input f, :author, class: "form-control", placeholder: "Author" %>
+    <%= text_input f, :author, class: "form-control", placeholder: "Author", required: false %>
     <%= label f, :author %>
     <%= error_tag f, :author %>
   </div>
@@ -26,7 +27,7 @@
 
   <div class="mb-3">
     <%= label f, :tags %>
-    <%= multiple_select f, :tags, ["Arts": "arts", "Business": "business", "Entertainment": "entertainment", "Food": "food", "Game Trailers": "Game trailers", "Gaming": "gaming", "Health": "health", "Lifestyle": "lifestyle", "Living": "living", "Motoring": "motoring", "News": "news", "Science": "science", "Sports": "sports", "Technology": "technology", "Travel": "travel"], class: "form-select", size: 6 %>
+    <%= multiple_select f, :tags, ["Arts": "arts", "Business": "business", "Entertainment": "entertainment", "Food": "food", "Game Trailers": "Game trailers", "Gaming": "gaming", "Health": "health", "Lifestyle": "lifestyle", "Living": "living", "Motoring": "motoring", "News": "news", "Science": "science", "Sports": "sports", "Technology": "technology", "Travel": "travel"], class: "form-select", size: 6, required: true %>
     <%= error_tag f, :tags %>
   </div>
 
