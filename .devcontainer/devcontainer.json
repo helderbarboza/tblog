@@ -1,0 +1,20 @@
+{
+	"name": "Existing Docker Compose (Extend)",
+	"dockerComposeFile": [
+		"../docker-compose.yml",
+		"docker-compose.yml"
+	],
+	"service": "web",
+	"workspaceFolder": "/workspace",
+	"settings": {},
+	"extensions": [
+		"JakeBecker.elixir-ls",
+		"pantajoe.vscode-elixir-credo",
+		"adamzapasnik.elixir-test-explorer",
+		"benvp.vscode-hex-pm-intellisense",
+		"hbenl.vscode-test-explorer",
+		"ms-vscode.test-adapter-converter",
+		"eamodio.gitlens",
+		"mhutchie.git-graph"
+	]
+}

@@ -1,19 +1,61 @@
 # TBlog
+## Overview
 
-To start your Phoenix server:
+A blog application.
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
-  * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
+## Tech Stack
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+  - Docker
+  - Docker compose
+  - Elixir
+  - Phoenix
+  - Postgresql
+  - Ecto
+  - Bootstrap
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+Also some important packages:
 
-## Learn more
+  - [credo](https://hexdocs.pm/credo) for static code analysis
+  - [excoveralls](https://hexdocs.pm/excoveralls) for test coverage reports
 
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+## Prerequisites
+
+To run this application you must have these resources installed:
+
+- [Docker](https://docs.docker.com/engine/install/ubuntu/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
+
+### Development with Docker
+
+
+```bash
+# Docker compose setup
+$ docker-compose up --build -d
+
+# Setup the database
+$ docker-compose exec web mix ecto.setup
+
+# Run the server
+$ docker-compose exec web mix phx.server
+```
+
+The project will be available at [localhost:4000](localhost:4000).
+
+### Testing with Docker
+
+```bash
+# Docker compose setup
+$ docker-compose up --build -d
+
+# Setup the database
+$ docker-compose exec web MIX_ENV=test mix ecto.reset
+
+# Run the tests
+$ docker-compose exec web mix test
+```
+
+### Development using Visual Studio Code Remote - Container
+
+For better convenience, this repository also has [Remote - Container](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) config files. 
+
+Simply execute the command **Remote-Containers: Reopen in container** on your VSCode.
