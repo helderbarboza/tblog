@@ -1,0 +1,20 @@
+<h1>Articles</h1>
+
+
+  <div class="row">
+<%= for article <- @articles do %>
+    <div class="col-sm-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><%= article.title %></h5>
+          <p class="card-text text-truncate"><%= article.content %></p>
+          <p><small class="text-muted"><%= article.author || "Anonymous" %></small></p>
+          <%= link "", to: Routes.article_path(@conn, :show, article), class: "stretched-link" %>
+        </div>
+      </div>
+    </div>
+<% end %>
+  </div>
+
+
+<span><%= link "New Article", to: Routes.article_path(@conn, :new) %></span>

@@ -1,0 +1,11 @@
+<article>
+  <h4><%= @article.title %></h4>
+
+  <p><small class="text-muted">by <%= @article.author || "Anonymous" %>, <%= @article.inserted_at %> </small></p>
+  <span><%= link "Edit", to: Routes.article_path(@conn, :edit, @article) %></span>
+      
+  <div style="text-align: justify; text-justify: inter-word;"><%= text_to_html @article.content %></div>
+</article>
+
+<strong>Tags:</strong> <%= Enum.intersperse(@article.tags, ", ") %>
+
