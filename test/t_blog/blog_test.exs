@@ -17,7 +17,7 @@ defmodule TBlog.BlogTest do
 
     test "get_article!/1 returns the article with given id" do
       article = article_fixture()
-      assert Blog.get_article!(article.id) == article
+      assert Blog.get_article_by_slug!(article.slug) == article
     end
 
     test "create_article/1 with valid data creates a article" do
@@ -59,13 +59,13 @@ defmodule TBlog.BlogTest do
     test "update_article/2 with invalid data returns error changeset" do
       article = article_fixture()
       assert {:error, %Ecto.Changeset{}} = Blog.update_article(article, @invalid_attrs)
-      assert article == Blog.get_article!(article.id)
+      assert article == Blog.get_article_by_slug!(article.slug)
     end
 
     test "delete_article/1 deletes the article" do
       article = article_fixture()
       assert {:ok, %Article{}} = Blog.delete_article(article)
-      assert_raise Ecto.NoResultsError, fn -> Blog.get_article!(article.id) end
+      assert_raise Ecto.NoResultsError, fn -> Blog.get_article_by_slug!(article.slug) end
     end
 
     test "change_article/1 returns a article changeset" do

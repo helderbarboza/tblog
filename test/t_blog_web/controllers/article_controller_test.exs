@@ -7,13 +7,15 @@ defmodule TBlogWeb.ArticleControllerTest do
     author: "some author",
     content: "some content",
     tags: ["movies", "books"],
-    title: "some title"
+    title: "some title",
+    slug: "some-title"
   }
   @update_attrs %{
     author: "some updated author",
     content: "some updated content",
     tags: ["world", "economy"],
-    title: "some updated title"
+    title: "some updated title",
+    slug: "some-updated-title"
   }
   @invalid_attrs %{author: nil, content: nil, tags: nil, title: nil}
 
