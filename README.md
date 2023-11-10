@@ -3,6 +3,27 @@
 
 A blog application.
 
+### Screenshots
+
+<table>
+  <tbody>
+    <tr>
+      <td>
+        <img src="https://github.com/helderbarboza/tblog/assets/29435727/a259dc30-106e-464c-9a8e-87ef736e0650">
+        <p align="center"><sup><em>List articles</em></sup></p>
+      </td>
+      <td>
+        <img src="https://github.com/helderbarboza/tblog/assets/29435727/0d53f701-646e-4048-9fdf-0c0bcdf1a5c4">
+        <p align="center"><sup><em>Edit article</em></sup></p>
+      </td>
+      <td>
+        <img src="https://github.com/helderbarboza/tblog/assets/29435727/90bc16e2-f96a-45ed-a5b8-ff4b997c1a36">
+        <p align="center"><sup><em>Show article</em></sup></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 ## Tech Stack
 
   - Docker
@@ -13,11 +34,6 @@ A blog application.
   - Ecto
   - Bootstrap
 
-Also some important packages:
-
-  - [credo](https://hexdocs.pm/credo) for static code analysis
-  - [excoveralls](https://hexdocs.pm/excoveralls) for test coverage reports
-
 ## Prerequisites
 
 To run this application you must have these resources installed:
@@ -26,7 +42,6 @@ To run this application you must have these resources installed:
 - [Docker Compose](https://docs.docker.com/compose/install/)
 
 ### Development with Docker
-
 
 ```bash
 # Docker compose setup
@@ -53,9 +68,3 @@ $ docker-compose exec web MIX_ENV=test mix ecto.reset
 # Run the tests
 $ docker-compose exec web mix test
 ```
-
-### Development using Visual Studio Code Remote - Container
-
-For better convenience, this repository also has [Remote - Container](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) config files. 
-
-Simply execute the command **Remote-Containers: Reopen in container** on your VSCode.
