@@ -26,13 +26,13 @@ A blog application.
 
 ## Tech Stack
 
-  - Docker
-  - Docker compose
   - Elixir
   - Phoenix
   - Postgresql
   - Ecto
   - Bootstrap
+  - Docker
+  - Docker compose
 
 ## Prerequisites
 
