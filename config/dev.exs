@@ -2,10 +2,10 @@ import Config
 
 # Configure your database
 config :t_blog, TBlog.Repo,
-  username: "postgres",
-  password: "postgres",
-  hostname: "db",
-  database: "t_blog_dev",
+  username: System.get_env("PGUSER", "postgres"),
+  password: System.get_env("PGPASSWORD", "postgres"),
+  hostname: System.get_env("PGHOST", "localhost"),
+  database: System.get_env("PGDATABASE", "t_blog_dev"),
   port: 5432,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
